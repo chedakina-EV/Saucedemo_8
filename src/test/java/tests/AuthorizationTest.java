@@ -13,8 +13,8 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("standard_user", "secret_sauce");
 
         assertTrue(productPage.pageTitleVisible());
-        assertEquals(productPage.getTitleText(), "Products");
-        assertEquals(productPage.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
+        assertEquals("Products", productPage.getTitleText());
+        assertEquals("https://www.saucedemo.com/inventory.html", productPage.getCurrentUrl());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("locked_out_user", "secret_sauce");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(), "Epic sadface: Sorry, this user has been locked out.");
+        assertEquals("Epic sadface: Sorry, this user has been locked out.", loginPage.errorMsgText());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("", "");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(), "Epic sadface: Username is required");
+        assertEquals("Epic sadface: Username is required", loginPage.errorMsgText());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("standard_user", "");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(), "Epic sadface: Password is required");
+        assertEquals("Epic sadface: Password is required", loginPage.errorMsgText());
     }
 
     @Test
@@ -50,8 +50,8 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("standard_user", "Secret_sauce");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(),
-                "Epic sadface: Username and password do not match any user in this service");
+        assertEquals("Epic sadface: Username and password do not match any user in this service",
+                loginPage.errorMsgText());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("", "secret_sauce");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(), "Epic sadface: Username is required");
+        assertEquals("Epic sadface: Username is required", loginPage.errorMsgText());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class AuthorizationTest extends BaseTest {
         loginPage.authorization("Standard_user", "secret_sauce");
 
         assertTrue(loginPage.errorMsgVisible());
-        assertEquals(loginPage.errorMsgText(),
-                "Epic sadface: Username and password do not match any user in this service");
+        assertEquals("Epic sadface: Username and password do not match any user in this service",
+                loginPage.errorMsgText());
     }
 }
