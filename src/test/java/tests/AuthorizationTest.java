@@ -1,7 +1,6 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,7 +18,7 @@ public class AuthorizationTest extends BaseTest {
     }
 
     @Test
-    public void lockedOutLogin() throws InterruptedException {
+    public void lockedOutLogin() {
         loginPage.open();
         loginPage.authorization("locked_out_user", "secret_sauce");
 
