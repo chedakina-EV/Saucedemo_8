@@ -20,7 +20,6 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
-        driver.get("https://www.saucedemo.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);

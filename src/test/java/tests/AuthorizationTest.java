@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AuthorizationTest extends BaseTest {
 
     @Test
-    public void validLoginPassword() throws InterruptedException {
+    public void validLoginPassword() {
         loginPage.open();
         loginPage.authorization("standard_user", "secret_sauce");
 
@@ -74,4 +74,3 @@ public class AuthorizationTest extends BaseTest {
                 "Epic sadface: Username and password do not match any user in this service");
     }
 }
-
